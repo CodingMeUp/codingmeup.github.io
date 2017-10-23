@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all" />
+<title>transition-CSS简单尝试</title>
+<style type="text/css">
+/*--reset--*/
+em{font-style:normal;}
+ul{list-style:none;margin:0}
+a{text-decoration:none;}
+a:hover{text-decoration:none}
+*{padding:0;margin:0;}
+body{font-size:12px;width:100%; min-width:1000px;font-family:Arial,microsoft YaHei;font-size:14px;}
+.tl{text-align:left;}
+.tc{text-align:center;}
+.p20{padding:20px;}
+.m30{margin:30px}
+.f14{font-size:14px;}
+.fb{font-weight:bold;}
+.cf60{color:#F60}
+.item{width:90%;margin:20px auto;overflow:hidden;text-align:center}
+.boxs{text-align:center;border:2px solid #F90;/*border:2px solid #F90;*/margin:30px;padding:20px 0;background:#FFE9D2}
+.box{
+	height:100px;
+	width:100px;
+	line-height:30px;
+	background: #06F;
+	color: #fff;
+	border-radius: 10px;
+	margin:25px;
+	display:inline-block;
+	padding:20px;
+}
+/*ease*/
+.ease{
+	-moz-transition-property:all;/*指定当元素其中一个属性改变时执行transition效果*/
+	-moz-transition-duration:5s;/*指定元素 转换过程的持续时间*/
+	-moz-transition-timing-function:ease;/*允许你根据时间的推进去改变属性值的变换速率(逐渐变慢)*/
+	-moz-transition-delay:0.5s;/*指定一个动画开始执行的时间，也就是说当改变元素属性值后多长时间开始执行transition效果*/
+	-webkit-transition-property:all;
+	-webkit-transition-duration:5s;
+	-webkit-transition-timing-function:ease;
+	-webkit-transition-delay:0.5s;
+
+}
+.ease-item{
+	-moz-transition-property:all;
+	-moz-transition-duration:5s;
+	-moz-transition-delay:0.5s;
+	-webkit-transition-property:all;
+	-webkit-transition-duration:5s;
+	-webkit-transition-delay:0.5s;
+	-o-transition-property:all;
+	-o-transition-duration:5s;
+	-o-transition-delay:0.5s;
+}
+.ease-in{
+	-moz-transition-timing-function:ease-in;/*加速*/
+	-webkit-transition-timing-function:ease-in;/*加速*/
+	-o-transition-timing-function:ease-in;/*加速*/
+}
+.ease-out{
+	-moz-transition-timing-function:ease-out;/*减速*/
+	-webkit-transition-timing-function:ease-out;/*减速*/
+	-o-transition-timing-function:ease-out;/*减速*/
+}
+.ease-in-out{
+	-moz-transition-timing-function:ease-in-out;/*加速然后减速*/
+	-webkit-transition-timing-function:ease-in-out;/*加速然后减速*/
+	-o-transition-timing-function:ease-in-out;/*加速然后减速*/
+}
+.linear{
+	-moz-transition-timing-function:linear;/*匀速*/
+	-webkit-transition-timing-function:linear;/*匀速*/
+	-o-transition-timing-function:linear;/*匀速*/
+}
+.cubic-bezier{
+	-moz-transition-timing-function:cubic-bezier(0.2, 0.5, 0.5, 0.1);/*自定义*/
+	-webkit-transition-timing-function:cubic-bezier(0.2, 0.5, 0.5, 0.1);/*自定义*/
+	-o-transition-timing-function:cubic-bezier(0.2, 0.5, 0.5, 0.1);/*自定义*/
+}
+/*
+.item .box:hover{
+	background:#f36;
+	border-radius:25px;
+	-moz-transform:rotate(360deg) scale(0.8);
+}*/
+.boxs:hover .box{
+	background:#f36;
+	border-radius:25px;
+	-moz-transform:rotate(360deg) scale(0.8);
+	-webkit-transform:rotate(360deg) scale(0.8);
+	-o-transform:rotate(360deg) scale(0.8);
+}
+.info{margin:30px;padding:10px;border-top:1px dashed #aaa; line-height:24px;}
+.tips span{ color:#f60; font-size:12px;}
+</style>
+</head>
+<body>
+<div class="item">
+	<h2 class="tl m30 tips">鼠标移至蓝色方块查看demo效果<br><span>请使用高富帅浏览器：chrome浏览器、firefox浏览器、opera浏览器</span></h2>
+	<div class="boxs tc">
+        <div class="box ease-item ease">ease<br>逐渐变慢</div>
+        <div class="box ease-item ease-in">ease-in<br>加速</div>
+        <div class="box ease-item ease-out">ease-out<br>减速</div>
+        <div class="box ease-item ease-in-out">ease-in-out<br>加速然后减速</div>
+        <div class="box ease-item linear">linear<br>匀速</div>
+        <div class="box ease-item cubic-bezier">cubic-bezier<br>贝塞尔曲线</div>
+    </div>
+    <div class="info tl f14">
+    	<p>transition-timing-function的值允许你根据时间的推进去改变属性值的变换速率，transition-timing-function有6个可能值：</p>
+        <p><span class="cf60 fb">ease：</span>（逐渐变慢）默认值，ease函数等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0).</p>
+        <p><span class="cf60 fb">linear：</span>（匀速），linear 函数等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0).</p>
+        <p><span class="cf60 fb">ease-in：</span>（加速），ease-in 函数等同于贝塞尔曲线(0.42, 0, 1.0, 1.0).</p>
+        <p><span class="cf60 fb">ease-out：</span>（减速），ease-out 函数等同于贝塞尔曲线(0, 0, 0.58, 1.0).</p>
+        <p><span class="cf60 fb">ease-in-out：</span>（加速然后减速），ease-in-out 函数等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)</p>
+        <p><span class="cf60 fb">cubic-bezier：</span>（该值允许你去自定义一个时间曲线）， 特定的cubic-bezier曲线。 (x1, y1, x2, y2)四个值特定于曲线上点P1和点P2。所有值需在[0, 1]区域内，否则无效。</p>
+    </div>
+</div>
+</body>
+</html>

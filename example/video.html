@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<title>实例-视频自适应</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+html,body{
+	position:relative;
+	width:100%;
+}
+h1{
+	font-size:14px;
+	text-align:center;
+	line-height:70px;
+}
+.video{
+	position:relative;
+	width:100%;
+	height:0;
+	padding:0 0 56.25%;
+	background:#000;
+}
+.video video{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+</style>
+</head>
+<body>
+	<h1>视频自适应</h1>
+	<div class="video"><video src="img/dy-video.mp4" controls="controls" autoplay="autoplay"></video></div>
+</body>
+</html>

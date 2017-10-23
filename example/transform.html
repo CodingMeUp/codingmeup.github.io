@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all" />
+<title>transform-CSS简单尝试</title>
+<style type="text/css">
+/*--reset--*/
+em{font-style:normal;}
+ul{list-style:none;margin:0}
+a{text-decoration:none;}
+a:hover{text-decoration:none}
+*{padding:0;margin:0;}
+body{font-size:12px; width:100%;min-width:1000px;font-family:Arial,microsoft YaHei;}
+.items{ text-align:center;width:98%;text-align:center; margin:0 auto}
+.item{width:350px;height:350px;border:2px solid #F90;margin:20px 15px;display:inline-block; text-align:left;}
+ul{list-style:none;}
+.fl{float:left;}
+.tips{width:95%;padding:30px 0 20px; margin:0 auto;border-bottom:2px dashed #aaa;}
+.tips span{ color:#f60; font-size:12px;}
+.box{
+	height:75px;
+	width:75px;
+	line-height:75px;
+	text-align: center;
+	background: #06F;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 10px;
+	font-size:12px;
+	margin:30px 0 0 30px;
+	float:left;
+}
+.cf60{color:#F60;}
+.fb{font-weight:bold;}
+.w100{width:110px;height:110px;}
+/*rotate*/
+.rotate-a:hover {
+	transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+}
+.rotate-b:hover {
+	transform:rotate(-45deg);
+	-moz-transform:rotate(-45deg);
+	-webkit-transform:rotate(-45deg);
+	-o-transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg);
+}
+/*scale*/
+.scale-a:hover {
+	transform:scale(1.5);
+	-moz-transform:scale(1.5);
+	-webkit-transform:scale(1.5);
+	-o-transform:scale(1.5);
+	-ms-transform:scale(1.5);
+}
+.scale-b:hover {
+	transform:scale(1.5,1);
+	-moz-transform:scale(1.5,1);
+	-webkit-transform:scale(1.5,1);
+	-o-transform:scale(1.5,1);
+	-ms-transform:scale(1.5,1);
+}
+.scale-c:hover {
+	transform:scale(-1.5,1);
+	-moz-transform:scale(-1.5,1);
+	-webkit-transform:scale(-1.5,1);
+	-o-transform:scale(-1.5,1);
+	-ms-transform:scale(-1.5,1);
+}
+/*translate*/
+.translate{
+	transform: translate(0px,0px);
+	-moz-transform: translate(0px,0px);
+	-webkit-transform: translate(0px,0px);
+	-o-transform: translate(0px,0px);
+	-ms-transform: translate(0px,0px);
+}
+.translate-a:hover {
+	transform: translate(25px,0);
+	-moz-transform: translate(25px,0);
+	-webkit-transform: translate(25px,0);
+	-o-transform: translate(25px,0);
+	-ms-transform: translate(25px,0);
+}
+.translate-b:hover {
+	transform: translate(0,25px);
+	-moz-transform: translate(0,25px);
+	-webkit-transform: translate(0,25px);
+	-o-transform: translate(0,25px);
+	-ms-transform: translate(0,25px);
+}
+.translate-c:hover {
+	transform: translate(-25px, 25px);
+	-moz-transform: translate(-25px, 25px);
+	-webkit-transform: translate(-25px, 25px);
+	-o-transform: translate(-25px, 25px);
+	-ms-transform: translate(-25px, 25px);
+}
+/*变形*/
+.skew{
+	transform:skew(0);
+	-moz-transform:skew(0);
+	-webkit-transform:skew(0);
+	-o-transform:skew(0);
+	-ms-transform:skew(0);
+}
+.skew-a:hover{
+	transform:skewX(20deg);
+	-moz-transform:skewX(20deg);
+	-webkit-transform:skewX(20deg);
+	-o-transform:skewX(20deg);
+	-ms-transform:skewX(20deg);
+}
+.skew-b:hover{
+	transform:skewY(20deg);
+	-moz-transform:skewY(20deg);
+	-webkit-transform:skewY(20deg);
+	-o-transform:skewY(20deg);
+	-ms-transform:skewY(20deg);
+}
+.skew-c:hover{
+	transform:skew(-20deg,20deg);
+	-moz-transform:skew(-20deg,20deg);
+	-webkit-transform:skew(-20deg,20deg);
+	-o-transform:skew(-20deg,20deg);
+	-ms-transform:skew(-20deg,20deg);
+}
+/*info*/
+.info{clear:both;padding:40px 25px 25px;line-height:20px;}
+</style>
+</head>
+<body>
+<h2 class="tips">鼠标移上蓝色方块查看demo效果<br><span>请使用高富帅浏览器：chrome浏览器、firefox浏览器、opera浏览器</span></h2>
+<div class="items">
+    <div class="item">
+        <div class="box rotate-a">rotate-a</div>
+        <div class="box rotate-b">rotate-b</div>
+        <div class="info">
+            <p>rotate就是基于角度转动一个对象并可用于内联元素和块级元素。</p>
+            <p>如果设置的值为正数表示顺时针旋转，如果设置的值为负数，则表示逆时针旋转。</p>
+            <p>&nbsp;</p>
+            <p><span class="cf60 fb">rotate-a：</span>顺时针旋转45°</p>
+            <p><span class="cf60 fb">rotate-b：</span>逆时针旋转45°</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </div>
+    </div>
+    <div class="item">
+        <div class="box scale-a">scale-a</div>
+        <div class="box scale-b">scale-b</div>
+        <div class="box scale-c">scale-c</div>
+        <div class="info">
+            <p>scale(x,y)使元素水平方向和垂直方向同时缩放（也就是X轴和Y轴同时缩放）,scaleX(x)元素仅水平方向缩放（X轴缩放）,scaleY(y)元素仅垂直方向缩放（Y轴缩放）。</p>
+            <p>x,y高两个值可以是正数、负数和小数。</p>
+            <p>x,y为负数，则表示翻转。</p>
+            <p>&nbsp;</p>
+            <p><span class="cf60 fb">scale-a：</span>宽高放大1.5倍</p>
+            <p><span class="cf60 fb">scale-b：</span>宽放大1.5倍，高不变</p>
+            <p><span class="cf60 fb">scale-c：</span>宽放大1.5倍并水平反转，高不变</p>
+        </div>
+    </div>
+    <div class="item">
+        <div class="box translate translate-a">translate-a</div>
+        <div class="box translate translate-b">translate-b</div>
+        <div class="box translate translate-c">translate-c</div>
+        <div class="info">
+            <p>translate就是基于X和Y坐标重新定位元素。</p>
+            <p>translate(x,y)水平方向和垂直方向同时重新定位，也可以仅translateX(x)水平方向（X轴）重新定位，或translateY(y)垂直方向（Y轴）重新定位。</p>
+            <p>x,y值可以是正数、负数。</p>
+            <p>&nbsp;</p>
+            <p><span class="cf60 fb">translate-a：</span>重新定位Y=50px</p>
+            <p><span class="cf60 fb">translate-b：</span>重新定位Y=50px</p>
+            <p><span class="cf60 fb">translate-c：</span>重新定位Y=50px</p>
+        </div>
+    </div>
+    <div class="item">
+        <div class="box skew skew-a">skew-a</div>
+        <div class="box skew skew-b">skew-b</div>
+        <div class="box skew skew-c">skew-c</div>
+        <div class="info">
+            <p>skew有三种情况：skew(x,y)使元素在水平和垂直方向同时扭曲，skewX(x)仅使元素在水平方向扭曲变形，skewY(y)仅使元素在垂直方向扭曲变形。</p>
+            <p>x,y值可以是正数、负数。</p>
+            <p>&nbsp;</p>
+            <p><span class="cf60 fb">skew-a：</span>X轴扭曲20deg</p>
+            <p><span class="cf60 fb">skew-b：</span>Y轴扭曲20deg</p>
+            <p><span class="cf60 fb">skew-c：</span>X轴扭曲-20deg，Y轴扭曲20deg</p>
+            <p>&nbsp;</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
