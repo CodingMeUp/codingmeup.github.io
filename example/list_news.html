@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <title>实例-文字列表</title>
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    li,
+    input,
+    select,
+    textarea,
+    div,
+    table,
+    td,
+    th,
+    tr,
+    dt,
+    dd,
+    dl {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 100%;
+      font-weight: normal;
+    }
+
+    nav {
+      display: block;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    em,
+    i {
+      font-style: normal;
+    }
+
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    img {
+      border: 0;
+      vertical-align: middle;
+      -webkit-touch-callout: none;
+    }
+
+    input,
+    select {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 100%;
+      font-family: "\5FAE\8F6F\96C5\9ED1";
+      line-height: 150%;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+      outline: none;
+      hide-focus: expression(this.hideFocus=true);
+      background-color: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:hover {
+      color: #000;
+    }
+
+    dl,
+    dt,
+    dd,
+    div {
+      outline: none;
+    }
+
+    .none {
+      display: none;
+    }
+
+    .hide {
+      visibility: hidden;
+    }
+
+    .visb {
+      visibility: visible;
+    }
+
+    .pa {
+      position: absolute;
+    }
+
+    .bk {
+      display: block;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      min-width: 320px;
+      font: 14px/1.5 "\5FAE\8F6F\96C5\9ED1", arial;
+      color: #000;
+      -webkit-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+      cursor: default;
+    }
+
+    body>object p {
+      display: none;
+    }
+
+    .wrapper {
+      width: 100%;
+      text-align: center;
+      padding: 5% 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .article {
+      position: relative;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .tabs {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .tabs a {
+      display: block;
+      height: 43px;
+      line-height: 43px;
+      color: #414242;
+      text-align: center;
+    }
+
+    .tabs a:hover,
+    .tabs .cur {
+      color: #2fc3a2;
+    }
+    /* 新闻 */
+
+    .hotnews {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .newsbox {
+      padding: 15px 20px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsbox .tabs li {
+      float: left;
+      width: 50px;
+    }
+
+    .newsbox .bdbotline {
+      width: 50px;
+    }
+
+    .newsbox .tabs .more-news {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 100%;
+    }
+
+    .newsbox .morer {
+      color: #B9C1C1;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .listpart {
+      position: relative;
+      border-top: 1px solid #e4eae9;
+      width: 100%;
+      height: 222px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .listbox {
+      width: 100%;
+      position: absolute;
+      top: 18px;
+      left: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-transition: all .3s ease-out 0s;
+      transition: all .3s ease-out 0s;
+    }
+
+    .newslists {
+      float: left;
+      width: 100%;
+      *zoom: 1;
+      font-size: 13px;
+    }
+
+    .newslists .nl-i {
+      position: relative;
+      margin: 0 5px;
+      *float: left;
+      *zoom: 1;
+      *width: 395px;
+    }
+
+    .newslists .cltag {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      line-height: 100%;
+      margin-top: -7px;
+      color: #767676;
+      z-index: 5;
+    }
+
+    .newslists .cltag:hover i {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .newslists .cltit {
+      position: relative;
+      display: block;
+      padding: 3px 50px 3px 0;
+      margin-left: 40px;
+      color: #505050;
+      *width: 265px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      z-index: 2;
+    }
+
+    .newslists .cltit:hover {
+      color: #2FC3A2;
+    }
+
+    .newslists .cltime {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      line-height: 100%;
+      margin-top: -6px;
+      text-align: right;
+      z-index: 1;
+      color: #b1b1b1;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    @media screen and (max-width:460px) {
+      .hotnews {
+        height: auto;
+      }
+      .newsbox {
+        padding: 3%;
+      }
+    }
+
+    @media screen and (max-width:320px) {
+      .tabs a {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <h1>文字列表</h1>
+      <div class="article hotnews">
+        <div class="newsbox">
+          <div class="tabpart" id="newstab">
+            <ul class="tabs newstabs">
+              <li><a class="cf" href="javascript:;" data-cf="0">头条</a></li>
+              <li><a class="cf" href="javascript:;" data-cf="1">新闻</a></li>
+              <li><a class="cf" href="javascript:;" data-cf="2">公告</a></li>
+            </ul>
+          </div>
+          <div class="listpart">
+            <div class="listbox" id="newslist">
+              <ul class="newslists">
+                <li class="nl-i"><a class="cltag clt5015">[<i>头条</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>头条</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>头条</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>头条</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>头条</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>头条</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>头条</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>头条</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+              </ul>
+              <ul class="newslists">
+                <li class="nl-i"><a class="cltag clt5015">[<i>新闻</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>新闻</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>新闻</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>新闻</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>新闻</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>新闻</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>新闻</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>新闻</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+              </ul>
+              <ul class="newslists">
+                <li class="nl-i"><a class="cltag clt5015">[<i>公告</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>公告</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>公告</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>公告</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>公告</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>公告</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>公告</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+                <li class="nl-i"><a class="cltag clt5015">[<i>公告</i>]</a><a class="cltit">这里是新闻文字/这里是新闻文字/这里是新闻文字/这里是新闻文字</a><span class="cltime">11/29</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var glb = {
+      d: document,
+      nau: navigator.userAgent,
+      getId: function(id) {
+        return this.d.getElementById(id)
+      },
+      getElems: function(el, o) {
+        return el.getElementsByTagName(o);
+      },
+      getClass: function(cn, el, nd) {
+        var testClass = new RegExp("\\b" + cn + "\\b"),
+          ar = [],
+          el = el || this.d,
+          nd = nd || '*',
+          tag = this.getElems(el, nd),
+          len = tag.length;
+        for (var i = 0; i < len; i++) {
+          var cel = tag[i];
+          if (testClass.test(cel.className)) {
+            ar.push(cel);
+          };
+        };
+        return ar;
+      },
+      addEvent: function(a, b, c, d) {
+        if (a.addEventListener) {
+          a.addEventListener(b, c, d)
+        } else if (a.attachEvent) {
+          a.attachEvent('on' + b, c)
+        }
+      },
+      delEvent: function(a, b, c, d) {
+        if (a.removeEventListener) {
+          a.removeEventListener(b, c, d)
+        } else if (a.detachEvent) {
+          a.detachEvent('on' + b, c)
+        }
+      }
+    };
+    glb.brow = {
+      isMobile: /Android|iPhone|iTouch|iPad|BlackBerry|IEMobile|Mobile/i.test(glb.nau)
+    };
+    var Main = function() {
+      this.setCotType = function() {
+        return (glb.brow.isMobile) ? 'touchstart' : 'click';
+      };
+      this.eq = this.setCotType();
+      this.newsTabChange({
+        tag: 'newstab',
+        taglist: 'newslist'
+      });
+    };
+    Main.prototype.newsTabChange = function(o) {
+      var self = this,
+        url = '/webplat/info/news_version3/5012/5013/5014/',
+        cur = null,
+        newstab = glb.getId(o.tag),
+        cfs = glb.getClass('cf', newstab, 'a'),
+        newslist = glb.getId(o.taglist),
+        boxWidth = newslist.clientWidth,
+        newsbox = glb.getClass('newslists', newslist),
+        changeTabs = function(e) {
+          var e = e || window.event,
+            target = e.target || e.srcElement;
+          if ("A" == target.nodeName && /\bcf\b/i.test(target.className)) {
+            n = parseInt(target.getAttribute('data-cf'));
+            newslist.style.left = -(boxWidth * n) + 'px';
+            cur.className = cur.className.replace(/ cur/i, '');
+            cur = target;
+            cur.className += ' cur';
+          };
+        };
+      cur = cfs[0];
+      cur.className += ' cur';
+      for (var i = 0, len = newsbox.length; i < len; i++) {
+        newsbox[i].style.width = boxWidth + 'px';
+      };
+      newslist.style.width = (boxWidth * len) + 'px';
+      glb.addEvent(newstab, self.eq, changeTabs, false);
+    };
+    var m = new Main();
+  </script>
+</body>
+
+</html>
